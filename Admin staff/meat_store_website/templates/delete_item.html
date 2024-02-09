@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Library - delete_item{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Item</title>
+</head>
+<body>
+    <h1>Delete Item</h1>
+    <p>Are you sure you want to delete this item?</p>
+    <a href="{{ url_for('index') }}" style="color: blue; text-decoration: none; padding: 5px; border-radius: 5px; background-color: lightblue; display: inline-block;">Cancel</a>
+    <a href="{{ url_for('delete_item', item_id=item[0]) }}" style="color: white; background-color: red; padding: 5px; border-radius: 5px; text-decoration: none; margin-left: 5px; display: inline-block;">Delete Item</a>
+</body>
+</html>
+{% endblock %}

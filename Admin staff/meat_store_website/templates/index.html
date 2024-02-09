@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Library - index{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    {% for item in items %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ item[1] }}</h5>
+                <p class="card-text">Price: ${{ item[2] }} | Supplier: {{ item[3] }} | Weight: {{ item[4] }} KG</p>
+                <a href="{{ url_for('update_item', item_id=item[0]) }}" class="btn btn-primary">Update</a>
+                <a href="{{ url_for('delete_item', item_id=item[0]) }}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<a href="{{ url_for('add_item') }}" class="btn btn-success">Add New Item</a>
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Library - update_item{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Item</title>
+</head>
+<body>
+    <h1>Update Item</h1>
+    <form method="post" action="{{ url_for('update_item', item_id=item[0]) }}">
+        <label for="name">Item Name:</label>
+        <input type="text" id="name" name="name" value="{{ item[1] }}" required>
+        <br>
+        <label for="price">Item Price:</label>
+        <input type="number" id="price" name="price" value="{{ item[2] }}" step="0.01" required>
+        <br>
+        <label for="weight">Item Weight (KG):</label>
+        <input type="number" id="weight" name="weight" step="0.01" required>
+        <br>
+        <label for="supplier">Supplier:</label>
+        <input type="text" id="supplier" name="supplier" list="supplierList" value="{{ item[3] }}" required>
+        <datalist id="supplierList">
+            <option value="Sam and Co Supplier">
+            <option value="Jack Farm">
+            <option value="Family Kims">
+            <!-- Add more supplier options as needed -->
+        </datalist>
+        <br>
+        <button type="submit" style="color: white; background-color: blue; padding: 10px; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">Update Item</button>
+    </form>
+    <br>
+    <a href="{{ url_for('index') }}" style="color: blue; text-decoration: none; display: block; margin-top: 10px;">Back to Home</a>
+</body>
+</html>
+{% endblock %}
+
+
+
